@@ -1,52 +1,39 @@
-# 🏎️ F1 Design Patterns
+# 🏎️ F1 App - Flutter Project
 
-## Integrantes
-- Nome: `Rafael Antunes Souza`
+Este é o diretório raiz do aplicativo Flutter que implementa os padrões de projeto para o domínio de Fórmula 1.
 
+## 📁 Estrutura do Projeto
 
-## 📺 Apresentação
-🔗 Link do vídeo no drive: ``
+A arquitetura do aplicativo foi dividida em camadas lógicas para separar as responsabilidades e isolar a demonstração dos padrões:
 
----
+*   **`lib/domain/`**: Contém as entidades de domínio puro (ex: `Driver`, `Team`, `CarSetup`, `RaceSession`), sem dependências de framework ou lógica complexa.
+*   **`lib/patterns/`**: O coração deste projeto. Contém a implementação isolada dos 4 padrões de projeto exigidos:
+    *   `creational/race_session_manager.dart` (Singleton)
+    *   `creational/car_setup_builder.dart` (Builder)
+    *   `structural/telemetry_decorator.dart` (Decorator)
+    *   `behavioral/race_strategy.dart` (Strategy)
+*   **`lib/data/`**: Contém os dados falsos (*mocks*) utilizados no aplicativo (`f1_mock_data.dart`) e repositórios simples para acessá-los.
+*   **`lib/presentation/`**: Toda a interface de usuário (UI), dividida em:
+    *   `screens/`: Telas completas do aplicativo (Home, Drivers, Setup, Race Session).
+    *   `widgets/`: Componentes visuais reutilizáveis (Cards, Selectors).
+*   **`doc/`**: Contém a documentação técnica dos padrões implementados (`design_patterns.md`).
 
-## 📝 Descrição do Projeto
+## 🛠️ Tecnologias Utilizadas
 
-Este projeto é uma aplicação Flutter que demonstra de forma visual e interativa **4 padrões de projeto de software**, aplicados ao domínio automobilístico da Fórmula 1. 
+*   **Flutter & Dart**: O projeto foi construído nativamente com o SDK do Flutter.
+*   **Material Design 3**: Utilizado para a base visual, customizado com um tema escuro e cores inspiradas no universo da F1.
+*   *Nenhuma dependência externa adicional (packages)* foi utilizada, garantindo que o foco permaneça 100% no código dos padrões de projeto e nas ferramentas nativas do Dart.
 
-A aplicação não consome APIs externas, utilizando dados *mock* para focar 100% na implementação técnica dos padrões e na sua demonstração pela interface de usuário.
+## ▶️ Como Rodar
 
----
+Para executar este projeto, certifique-se de estar dentro desta pasta (`f1_app`) no seu terminal:
 
-## 🧩 Padrões Utilizados e Localização
-
-| Padrão | Categoria | Descrição no Domínio | Arquivo |
-|--------|-----------|----------------------|---------|
-| **Singleton** | Criacional | Garante a existência de uma única sessão de corrida ativa no sistema (`RaceSessionManager`). | `lib/patterns/creational/race_session_manager.dart` |
-| **Builder** | Criacional | Montagem passo a passo da configuração complexa de um carro (`CarSetupBuilder`). | `lib/patterns/creational/car_setup_builder.dart` |
-| **Decorator** | Estrutural | Adição dinâmica de camadas de dados de telemetria aos pilotos na UI (`TelemetryDecorator`). | `lib/patterns/structural/telemetry_decorator.dart` |
-| **Strategy** | Comportamental | Troca de estratégias de pit stop em tempo de execução (`RaceStrategy`). | `lib/patterns/behavioral/race_strategy.dart` |
-
----
-
-## 🚀 Como Executar
-
-O projeto foi desenvolvido para funcionar nativamente com o Flutter SDK, sem dependências de pacotes de terceiros.
-
-1. Navegue até o diretório do projeto:
 ```bash
-cd f1_app
-```
-
-2. Obtenha as dependências (neste caso, apenas dependências internas do Flutter):
-```bash
+# 1. Baixe as dependências internas do Flutter
 flutter pub get
-```
 
-3. Execute a aplicação (em emulador, dispositivo físico ou Chrome):
-```bash
+# 2. Execute o app no dispositivo selecionado (Emulador, Chrome, Windows, etc.)
 flutter run
 ```
 
----
-
-**Disciplina:** Padrões de Projeto de Software — IFSC Câmpus Gaspar
+Para voltar à documentação principal do repositório, consulte o `README.md` na pasta raiz do projeto.
