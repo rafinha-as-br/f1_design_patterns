@@ -1,7 +1,8 @@
 # 🏎️ F1 Design Patterns
 
 ## Integrantes
-- Nome: `Rafael Antunes Souza`
+- `Rafael Antunes Souza`
+- `Daniel Mariano Marques`
 
 
 ## 📺 Apresentação
